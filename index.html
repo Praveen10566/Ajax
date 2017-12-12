@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <script language="JavaScript" type="text/javascript">
+        xhttp=new XMLHttpRequest();
+        function getScores() {
+
+
+            xhttp.onreadyStatechange = function () {
+                if (readyState == 4 && status == 200) {
+                    document.getElementById('getScore').innerHTML = xhttp.responseText;
+                }
+                else {
+                    document.getElementById('getScore').innerHTML = "<strong>waiting for your process</strong>";
+                }
+            }
+            xhttp.open('get', "http://www.espn.com/");
+            xhttp.send()
+
+        }
+    </script>
+</head>
+<body>
+       <div id="getScore">
+
+       </div>
+<input type="button" value="GetScore" onclick="getScores()">
+</body>
+</html>
